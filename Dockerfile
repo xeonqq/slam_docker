@@ -3,7 +3,7 @@ MAINTAINER Qian Qian (xeonqq@gmail.com)
 
 # this docker adds all the dependencies to compile orb_slam2
 RUN apt-get -y update 
-RUN apt-get install -y tree feh vim-gnome firefox xauth libglew-dev ffmpeg libavcodec-dev libavutil-dev libavformat-dev libswscale-dev libavdevice-dev libjpeg-dev libpng12-dev libtiff5-dev libopenexr-dev zsh htop
+RUN apt-get install -y tree feh vim-gnome firefox xauth libglew-dev ffmpeg libavcodec-dev libavutil-dev libavformat-dev libswscale-dev libavdevice-dev libjpeg-dev libpng12-dev libtiff5-dev libopenexr-dev zsh htop silversearcher-ag
 RUN wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true
 RUN wget -P /tmp/ https://download.jetbrains.com/cpp/CLion-2019.3.2.tar.gz
 RUN tar -xvf /tmp/CLion-2019.3.2.tar.gz -C /root
