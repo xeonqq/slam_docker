@@ -28,6 +28,9 @@ RUN sed -i 's,stdint-gcc,stdint,g' /root/installation/ORB_SLAM2/src/ORBmatcher.c
 # we use clang, since it uses much less memory than gcc and is faster
 RUN cd /root/installation/ORB_SLAM2 && CXX=clang++-6.0 CC=clang-6.0 ./build.sh
 ENV PATH "$PATH:/root/clion-2019.3.2/bin"
-ENV PATH "$PATH:/usr/lib/nvidia-384"
-ENV LD_LIBRARY_PATH "$LD_LIBRARY_PATH:/usr/lib/nvidia-384:/usr/lib32/nvidia-384"
 
+RUN apt-get install -y mesa-utils freeglut3-dev module-init-tools
+
+ADD NVIDIA-Linux-x86_64-390.116.run /tmp/nvidia/NVIDIA.run
+RUN /tmp/nvidia/NVIDIA.run -s -N --no-kernel-module
+RUN rm /tmp/nvidia/NVIDIA.run
